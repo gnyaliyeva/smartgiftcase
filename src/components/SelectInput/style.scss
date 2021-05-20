@@ -1,0 +1,109 @@
+.select-input-container {
+  position: relative;
+  width: 100%;
+  .select-input-header {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    color: var(--grey700);
+    font-size: 14px;
+    transition: all .3s;
+    &.menu-open {
+      top: 10px;
+      font-size: 12px;
+    }
+  }
+  &.selected-value {
+    .select-input-header {
+      top: 10px;
+      opacity: 0.6;
+      font-size: 12px;
+    }
+    .true__control {
+      padding-top: 17px;
+    }
+    .true__indicators .icon {
+      margin-top: -17px;
+    }
+  }
+}
+.select-input {
+  outline: none;
+  width: 100%;
+  .true__control {
+    width: 100%;
+    height: 56px;
+    border: 1px solid var(--grey200);
+    padding-left: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--grey700);
+    border-radius: 2px;
+    text-decoration: none;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    appearance: none;
+    &:hover {
+      border-color: var(--grey200);
+    }
+  }
+  .true__control--is-focused {
+    border-color: var(--grey200);
+    box-shadow: initial;
+    padding-top: 17px;
+    &:hover {
+      border-color: var(--grey200);
+    }
+  }
+  .true__value-container {
+    margin-top: 6px;
+    padding: 0;
+  }
+  .true__single-value {
+    margin: 0;
+  }
+  .true__placeholder {
+    display: none;
+  }
+  .true__menu {
+    margin: 0;
+    box-shadow: 0 2px 12px rgba(var(--rgb-black),.16);
+    border-radius: 0 2px;
+    background-color: var(--white);
+  }
+  .true__input {
+    position: relative;
+    top: 0px;
+    left: -2px;
+  }
+  .true__menu-list {
+    padding: 0;
+    max-height: 190px;
+  }
+  .option-item {
+    background-color: inherit;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--grey400);
+    cursor: pointer;
+    &:hover {
+      background-color: var(--grey100);
+    }
+  }
+  .true__indicators .icon {
+    margin-right: 21px;
+  }
+  .true__indicator-separator {
+    background-color: inherit;
+    color: var(--grey700);
+  }
+}
