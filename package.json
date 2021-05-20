@@ -2,10 +2,16 @@
   "name": "smartgiftcase",
   "version": "0.1.0",
   "private": true,
+  "description": "Smartgift Frontend Case",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gnyaliyeva/smartgiftcase.git"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
