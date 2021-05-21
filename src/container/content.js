@@ -8,12 +8,23 @@ import Modal from "../components/Modal";
 const Content = (product) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
-  const [modal, setModal] = useState({});
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [productImage, setProductImage] = useState(product.images[0].url);
+  const [modal, setModal] = useState({});
+  const [selectedSKU, setSelectedSKU] = useState({
+    image: product.images[0].url,
+  });
 
   const handleAccept = () => {
-    setModal({ ...modal, isOpen: !modal.isOpen });
+    setModal({
+      isOpen: true,
+      message: (
+        <div>
+          The product code is <span>{selectedSKU.code}</span>
+          <Button primary href={selectedSKU.url} target="__blank">Show it now</Button>
+        </div>
+      ),
+      iconName: "basket",
+    });
   };
 
   useEffect(() => {
@@ -24,8 +35,8 @@ const Content = (product) => {
     //to reset states when product is changed
     setSelectedColor(null);
     setSelectedSize(null);
-    setProductImage(product.images[0].url);
     setIsButtonDisabled(true);
+    setSelectedSKU({ image: product.images[0].url });
   }, [product]);
 
   useEffect(() => {
@@ -36,9 +47,15 @@ const Content = (product) => {
           sku.attrs.Color === selectedColor.value &&
           sku.attrs.Size === selectedSize.value
       );
-      setProductImage(finded.images[0]);
+
+      setSelectedSKU({
+        image: finded.images[0],
+        code: finded.sku,
+        url: finded.url,
+      });
       setIsButtonDisabled(!finded.orderable);
-      if (finded.orderable) {
+
+      if (!finded.orderable) {
         setModal({
           isOpen: true,
           message: "Selection is not available!",
@@ -52,7 +69,7 @@ const Content = (product) => {
     <div className="section-row">
       <div className="section-col">
         <div className="product-image-wrapper">
-          <img src={productImage} alt={product.name} />
+          <img src={selectedSKU.image} alt={product.name} />
         </div>
         <div className="description-wrapper">
           <div className="description-wrapper--title">Product Details</div>

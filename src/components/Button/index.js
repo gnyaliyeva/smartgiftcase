@@ -1,69 +1,58 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
-import { omit } from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { omit } from "lodash";
 
-import Spinner from '../Spinners';
+import Spinner from "../Spinners";
 
-import './style.scss';
+import "./style.scss";
 
 /* eslint-disable react/button-has-type */
-const Button = props => {
+const Button = (props) => {
   const {
     children,
     href,
     className,
     primary,
-    secondary,
     transparent,
     disabled,
-    isSubmitting,
-    small,
+    isLoading,
   } = props;
-  const buttonClasses = classNames('button', className, {
-    'button-primary': primary,
-    'button-secondary': secondary,
-    'button-transparent': transparent,
-    'button-disabled': disabled || isSubmitting,
-    'button-small': small,
+  const buttonClasses = classNames("button", className, {
+    "button-primary": primary,
+    "button-transparent": transparent,
+    "button-disabled": disabled || isLoading,
   });
-  const linkClasses = classNames('link', className);
+  const linkClasses = classNames("link", className);
   const buttonProps = omit(
     props,
-    'isSubmitting',
-    'children',
-    'primary',
-    'secondary',
-    'transparent',
-    'small',
-    'disabled',
+    "isLoading",
+    "children",
+    "primary",
+    "transparent",
+    "disabled"
   );
-  const linkProps = omit(buttonProps, 'type');
+  const linkProps = omit(buttonProps, "type");
 
   if (href) {
     return (
-      <Link
-        to={props.href}
+      <a
+        href={props.href}
         {...linkProps}
-        disabled={disabled || isSubmitting}
+        disabled={disabled || isLoading}
         className={linkClasses}
       >
-        {isSubmitting ? (
-          <Spinner name="clip" size={small ? 14 : 21} />
-        ) : (
-          children
-        )}
-      </Link>
+        {isLoading ? <Spinner name="clip" size={21} /> : children}
+      </a>
     );
   }
   return (
     <button
       {...buttonProps}
       className={buttonClasses}
-      disabled={disabled || isSubmitting}
+      disabled={disabled || isLoading}
     >
-      {isSubmitting ? <Spinner name="clip" size={small ? 14 : 21} /> : children}
+      {isLoading ? <Spinner name="clip" size={21} /> : children}
     </button>
   );
 };
@@ -72,22 +61,18 @@ Button.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
   primary: PropTypes.bool,
-  secondary: PropTypes.bool,
   transparent: PropTypes.bool,
   disabled: PropTypes.bool,
-  isSubmitting: PropTypes.bool,
-  small: PropTypes.bool,
+  isLoading: PropTypes.bool,
   type: PropTypes.string,
   className: PropTypes.string,
 };
 
 Button.defaultProps = {
   primary: false,
-  secondary: false,
   transparent: false,
   disabled: false,
-  small: false,
-  type: 'button',
+  type: "button",
 };
 
 export default Button;

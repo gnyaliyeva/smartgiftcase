@@ -44,10 +44,12 @@
       height: 400px;
     }
     .description-wrapper--title {
+      color: var(--primary);
       font-size: 18px;
       font-weight: 800px;
     }
     .product--title {
+      color: var(--primary);
       font-size: 24px;
       font-weight: 800;
       margin-bottom: 30px;
@@ -78,6 +80,9 @@
     margin-right: 0!important;
     margin-bottom: 15px;
   }
+  #smartgift-logo {
+    height: 50px!important;
+  }
 }
 
 @media (max-width: 532px) {
@@ -90,5 +95,8 @@
       margin-right: 0!important;
       margin-bottom: 15px;
     }
+  }
+  #smartgift-logo {
+    height: 40px!important;
   }
 }

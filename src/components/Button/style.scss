@@ -39,27 +39,6 @@
     }
   }
 }
-.button-secondary {
-  @extend %button-base;
-  @extend %button-size;
-  color: var(--white);
-  background-color: var(--secondary);
-  border: 1px solid var(--secondary);
-  .spinner-container span {
-    border-top-color: var(--white);
-    border-left-color: var(--white);
-    border-right-color: var(--white);
-  }
-  &:hover {
-    background-color: transparent;
-    color: var(--secondary);
-    .spinner-container span {
-      border-top-color: var(--green);
-      border-left-color: var(--green);
-      border-right-color: var(--green);
-    }
-  }
-}
 .button-transparent {
   @extend %button-base;
   height: auto;
@@ -74,6 +53,6 @@
   @extend %button-base;
   text-decoration: underline;
   display: inline-flex;
-  color: var(--secondary);
+  color: var(--primary);
   padding: 0;
 }

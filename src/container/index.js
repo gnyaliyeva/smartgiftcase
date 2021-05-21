@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import LOGO from "../assets/images/smartgiftlogo.svg";
 
 import Button from "../components/Button";
+import Modal from "../components/Modal";
 import NoContentCard from "../components/NoContentCard";
 import TextInput from "../components/TextInput";
 
@@ -18,25 +19,36 @@ const Container = () => {
   const [productCode, setProductCode] = useState(code || "");
   const [merchantCode, setMerchantCode] = useState("vineyardvines");
   const [results, setResults] = useState({});
+  const [modal, setModal] = useState({
+    isOpen: true,
+    message: (
+      <div>
+        Welcome on board!{" "}
+        <Button primary onClick={() => setModal({ ...modal, isOpen: false })}>
+          Let's go!
+        </Button>
+      </div>
+    ),
+    iconName: "gift",
+  });
 
   const handleProducts = () => {
-    const query = `?merchantCode=${merchantCode}&codes[]=${productCode}`;
+    let codes = "";
+    productCode.split(",").map((item) => (codes += `&codes[]=${item}`));
+    const query = `?merchantCode=${merchantCode}${codes}`;
     getProducts(query, setResults);
   };
 
   const getContext = () => {
-    if (results.status === SUCCESS) {
-      if (results.data.length) {
-        return results.data.map((product, key) => (
-          <Content key={key.toString()} {...product} />
-        ));
-      } else {
-        return <NoContentCard message="There is no product to show" />;
-      }
+    let message = "There is no product to show";
+    if (results.status === SUCCESS && results.data.length) {
+      return results.data.map((product, key) => (
+        <Content key={key.toString()} {...product} />
+      ));
     } else if (results.status === FAIL) {
-      return <NoContentCard message={results.data} />;
+      message = results.data;
     }
-    return null;
+    return <NoContentCard message={message} />;
   };
 
   return (
@@ -58,13 +70,14 @@ const Container = () => {
             info="You can type multiple codes that separated with comma"
           />
           <Link to={`/${productCode}`}>
-            <Button secondary onClick={handleProducts}>
+            <Button primary onClick={handleProducts}>
               Get Product Detail
             </Button>
           </Link>
         </div>
         {getContext()}
       </section>
+      <Modal modal={modal} setModal={setModal} />
     </div>
   );
 };
