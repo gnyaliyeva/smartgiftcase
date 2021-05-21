@@ -8,6 +8,7 @@
     color: var(--grey700);
     font-size: 14px;
     transition: all .3s;
+    cursor: pointer;
     &.menu-open {
       top: 10px;
       font-size: 12px;

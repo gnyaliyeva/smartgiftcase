@@ -1,0 +1,18 @@
+.no-content-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: var(--white);
+  border-radius: 2px;
+  box-shadow: 0 6px 8px rgba(var(--rgb-black),.16);
+  position: relative;
+  .no-content-text {
+    color: var(--grey400);
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 19px;
+  }
+}

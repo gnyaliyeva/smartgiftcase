@@ -34,6 +34,7 @@ const Button = props => {
     'isSubmitting',
     'children',
     'primary',
+    'secondary',
     'transparent',
     'small',
     'disabled',

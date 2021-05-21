@@ -1,13 +1,16 @@
 import { req } from "../utils/request";
 import { endpoints } from "../config";
 
-export function getProductsApi(query) {
+export function getProducts(query, setResults) {
   return req()
     .get(endpoints.get.products(query))
     .then((response) => {
-      console.log(response);
+      setResults(response.data);
     })
     .catch((error) => {
-      console.log(error);
+      if (error.response) {
+        const { data } = error.response;
+        setResults({ data: data.message, status: data.status });
+      }
     });
 }

@@ -1,0 +1,37 @@
+.popup-overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(var(--rgb-black), 0.45);
+  z-index: 30;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 650px;
+  min-height: 200px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  border-radius: 2px;
+  .modal__header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .modal__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .icon {
+      width: fit-content;
+      height: fit-content;
+    }
+  }
+}

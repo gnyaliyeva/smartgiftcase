@@ -8,12 +8,12 @@
 
 ::selection {
   color: var(--white);
-  background: var(--secondary);
+  background: var(--grey700);
 }
 
 ::-moz-selection {
   color: var(--white);
-  background: var(--secondary);
+  background: var(--grey700);
 }
 
 body {
@@ -39,8 +39,6 @@ a {
   border-radius: 2px;
   font-size: 14px;
   font-weight: 500;
-  padding-left: 16px;
-  padding-right: 16px;
   user-select: none;
   cursor: pointer;
   text-decoration: none;

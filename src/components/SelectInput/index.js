@@ -1,15 +1,15 @@
-import React, { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Select from 'react-select';
+import React, { useRef, useState } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Select from "react-select";
 
-import Icon from '../Icon';
+import Icon from "../Icon";
 
-import './style.scss';
+import "./style.scss";
 
-const DropdownIndicator = props => (
+const DropdownIndicator = (props) => (
   <Icon
-    name={props.selectProps.menuIsOpen ? 'selectUp' : 'selectDown'}
+    name={props.selectProps.menuIsOpen ? "selectUp" : "selectDown"}
     width={10}
     color="#333333"
   />
@@ -20,14 +20,14 @@ DropdownIndicator.propTypes = {
   menuIsOpen: PropTypes.bool,
 };
 
-const CustomOption = props => {
+const CustomOption = (props) => {
   const { isDisabled, innerProps } = props;
 
   return (
     <div>
       {!isDisabled ? (
         <div {...innerProps} className="option-item">
-          {props.data.label || props.data.name}
+          {props.data.label}
         </div>
       ) : null}
     </div>
@@ -45,46 +45,28 @@ CustomOption.propTypes = {
   ]),
 };
 
-const SelectInput = props => {
-  const {
-    className,
-    placeholder,
-    value,
-    onChangeValue,
-    options,
-    name,
-    optionKey,
-    isClearable,
-    isSearchable,
-    ...selectProps
-  } = props;
+const SelectInput = (props) => {
+  const { className, placeholder, value, ...selectProps } = props;
   const selectInputRef = useRef();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const classes = classNames(
-    'select-input-container',
+    "select-input-container",
     {
-      'selected-value': (value || value === 0) && placeholder,
+      "selected-value": value && placeholder,
     },
-    className,
+    className
   );
   const headerClasses = classNames({
-    'menu-open': isMenuOpen,
+    "menu-open": isMenuOpen,
   });
-
   return (
     <div className={classes}>
       <Select
         {...selectProps}
-        inputId={name}
         ref={selectInputRef}
-        getOptionLabel={option => option.name}
-        options={options}
-        value={options.find(option => option[optionKey] === value)}
-        onChange={onChangeValue}
+        value={value}
         className="select-input"
         components={{ DropdownIndicator, Option: CustomOption }}
-        isSearchable={isSearchable}
-        isClearable={isClearable}
         onMenuOpen={() => setIsMenuOpen(true)}
         onMenuClose={() => setIsMenuOpen(false)}
       />
@@ -101,33 +83,21 @@ export default SelectInput;
 
 SelectInput.propTypes = {
   className: PropTypes.string,
-  options: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   placeholder: PropTypes.node,
+  value: PropTypes.object,
+  options: PropTypes.array,
   onChangeValue: PropTypes.func,
-  isClearable: PropTypes.bool,
-  isSearchable: PropTypes.bool,
-  name: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-  ]),
-  optionKey: PropTypes.string,
 };
 
 SelectInput.defaultProps = {
-  className: '',
+  className: "",
   options: [],
-  name: '',
-  isClearable: false,
-  isSearchable: true,
-  optionKey: 'code',
 };
 
 Select.defaultProps = {
   isSearchable: false,
-  isClearable: true,
+  isClearable: false,
   classNamePrefix: true,
   closeMenuOnSelect: true,
-  placeholder: 'Select',
+  placeholder: "Select Your Choise",
 };
