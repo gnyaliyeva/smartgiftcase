@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import App from "./App";
+import Container from "./container";
 
-import "./main.scss";
+import "./assets/scss/main.scss";
 
 ReactDOM.render(
   <Router>
     <Switch>
-      <Route path="/:code" exact children={<App />} />
-      <Route path="/" exact children={<App />} />
+      <Route path="/:code" exact children={<Container />} />
+      <Route path="/" exact children={<Container />} />
     </Switch>
   </Router>,
   document.getElementById("root")

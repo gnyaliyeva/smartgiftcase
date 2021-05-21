@@ -1,5 +1,5 @@
-import { req } from "../utils/request";
-import { endpoints } from "../config";
+import { req } from "./request";
+import { endpoints } from "./config";
 
 export function getProducts(query, setResults) {
   return req()

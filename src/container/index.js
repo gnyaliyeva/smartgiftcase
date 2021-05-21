@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import LOGO from "../images/smartgiftlogo.svg";
+import LOGO from "../assets/images/smartgiftlogo.svg";
 
 import Button from "../components/Button";
 import NoContentCard from "../components/NoContentCard";
 import TextInput from "../components/TextInput";
 
 import Content from "./content";
-import { getProducts } from "./api";
-import { FAIL, SUCCESS } from "./constants";
+import { getProducts } from "../helpers/api";
+import { FAIL, SUCCESS } from "../helpers/constants";
 
 import "./style.scss";
 
-const App = () => {
+const Container = () => {
   const { code } = useParams();
   const [productCode, setProductCode] = useState(code || "");
   const [merchantCode, setMerchantCode] = useState("vineyardvines");
@@ -45,7 +45,7 @@ const App = () => {
         <img src={LOGO} alt="smartgift" id="smartgift-logo" />
       </header>
       <section id="main-content">
-        <div className="section-row text-inputs-wrapper">
+        <div className="text-inputs-wrapper">
           <TextInput
             placeholder="Merchant Code"
             value={merchantCode}
@@ -69,4 +69,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Container;
