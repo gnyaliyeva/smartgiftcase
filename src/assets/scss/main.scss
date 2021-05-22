@@ -2,6 +2,11 @@
 @import "variables";
 @import "reset";
 
+body {
+  background-color: var(--background);
+  color: var(--color);
+}
+
 body.fontLoaded {
   font-family: 'Manrope', sans-serif;
 }

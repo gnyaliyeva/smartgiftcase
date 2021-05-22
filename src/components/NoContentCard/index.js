@@ -7,7 +7,7 @@ import './style.scss';
 
 const NoContentCard = ({ iconName, iconSize, message }) => (
   <div className="no-content-card-container">
-    <Icon name={iconName} color="var(--grey700)" width={iconSize} />
+    <Icon name={iconName} width={iconSize} />
     <div className="no-content-text">{message}</div>
   </div>
 );

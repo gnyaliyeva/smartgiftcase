@@ -15,12 +15,18 @@ const Button = (props) => {
     className,
     primary,
     transparent,
+    light,
+    warm,
+    dark,
     disabled,
     isLoading,
   } = props;
   const buttonClasses = classNames("button", className, {
     "button-primary": primary,
     "button-transparent": transparent,
+    "button-light": light,
+    "button-warm": warm,
+    "button-dark": dark,
     "button-disabled": disabled || isLoading,
   });
   const linkClasses = classNames("link", className);
@@ -30,6 +36,9 @@ const Button = (props) => {
     "children",
     "primary",
     "transparent",
+    "light",
+    "warm",
+    "dark",
     "disabled"
   );
   const linkProps = omit(buttonProps, "type");
@@ -62,6 +71,9 @@ Button.propTypes = {
   href: PropTypes.string,
   primary: PropTypes.bool,
   transparent: PropTypes.bool,
+  light: PropTypes.bool,
+  warm: PropTypes.bool,
+  dark: PropTypes.bool,
   disabled: PropTypes.bool,
   isLoading: PropTypes.bool,
   type: PropTypes.string,
@@ -71,6 +83,9 @@ Button.propTypes = {
 Button.defaultProps = {
   primary: false,
   transparent: false,
+  light: false,
+  warm: false,
+  dark: false,
   disabled: false,
   type: "button",
 };

@@ -1,24 +1,22 @@
 import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
 
 import LOGO from "../assets/images/smartgiftlogo.svg";
 
-import Button from "../components/Button";
-import Modal from "../components/Modal";
-import NoContentCard from "../components/NoContentCard";
-import TextInput from "../components/TextInput";
+import { getContext } from "../helpers/tools";
 
-import Content from "./content";
-import { getProducts } from "../helpers/api";
-import { FAIL, SUCCESS } from "../helpers/constants";
+import Button from "../components/Button";
+import Icon from "../components/Icon";
+import Modal from "../components/Modal";
+import ThemeTool from "../components/ThemeTool";
+
+import HomePage from "./homepage";
 
 import "./style.scss";
 
 const Container = () => {
-  const { code } = useParams();
-  const [productCode, setProductCode] = useState(code || "");
-  const [merchantCode, setMerchantCode] = useState("vineyardvines");
   const [results, setResults] = useState({});
+  const [toggle, setToggle] = useState(false);
+
   const [modal, setModal] = useState({
     isOpen: true,
     message: (
@@ -32,52 +30,20 @@ const Container = () => {
     iconName: "gift",
   });
 
-  const handleProducts = () => {
-    let codes = "";
-    productCode.split(",").map((item) => (codes += `&codes[]=${item}`));
-    const query = `?merchantCode=${merchantCode}${codes}`;
-    getProducts(query, setResults);
-  };
-
-  const getContext = () => {
-    let message = "There is no product to show";
-    if (results.status === SUCCESS && results.data.length) {
-      return results.data.map((product, key) => (
-        <Content key={key.toString()} {...product} />
-      ));
-    } else if (results.status === FAIL) {
-      message = results.data;
-    }
-    return <NoContentCard message={message} />;
-  };
-
   return (
     <div className="app-container">
       <header>
         <img src={LOGO} alt="smartgift" id="smartgift-logo" />
+        <Button transparent onClick={() => setToggle(!toggle)}>
+          <Icon id="settings-icon" name="settings" width={26} />
+        </Button>
       </header>
       <section id="main-content">
-        <div className="text-inputs-wrapper">
-          <TextInput
-            placeholder="Merchant Code"
-            value={merchantCode}
-            onChange={(e) => setMerchantCode(e.target.value)}
-          />
-          <TextInput
-            placeholder="Product Code"
-            value={productCode}
-            onChange={(e) => setProductCode(e.target.value)}
-            info="You can type multiple codes that separated with comma"
-          />
-          <Link to={`/${productCode}`}>
-            <Button primary onClick={handleProducts}>
-              Get Product Detail
-            </Button>
-          </Link>
-        </div>
-        {getContext()}
+        <HomePage setResults={setResults} />
+        {getContext(results)}
       </section>
       <Modal modal={modal} setModal={setModal} />
+      {toggle && <ThemeTool setToggle={() => setToggle(false)} />}
     </div>
   );
 };

@@ -5,14 +5,17 @@
   align-items: center;
   padding-top: 64px;
   padding-bottom: 64px;
-  background-color: var(--white);
+  background-color: var(--background);
   border-radius: 2px;
   box-shadow: 0 6px 8px rgba(var(--rgb-black),.16);
   position: relative;
   .no-content-text {
-    color: var(--grey400);
-    font-size: 14px;
+    color: var(--color);
+    font-size: var(--font-medium);
     font-weight: 700;
     margin-top: 19px;
+  }
+  .icon {
+    fill: var(--color);
   }
 }

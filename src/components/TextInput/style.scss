@@ -2,10 +2,10 @@
   position: relative;
   flex: 1;
   .input-info {
-    font-size: 12px;
+    font-size: var(--font-xsmall);
     font-weight: 500;
     margin-top: 8px;
-    color: var(--primary);
+    color: var(--color);
   }
 }
 .input-container {
@@ -17,9 +17,9 @@
       position: absolute;
       top: 8px;
       transform: translateY(0%);
-      font-size: 12px;
+      font-size: var(--font-xsmall);
       font-weight: 500;
-      color: var(--grey700);
+      color: var(--color);
       opacity: 0.6;
       letter-spacing: 0.2px;
     }
@@ -34,7 +34,7 @@
     border-radius: 2px;
     height: 56px;
     border: 1px solid var(--grey200);
-    background-color: var(--white);
+    background-color: var(--background);
     padding: 10px 16px;
     box-sizing: border-box;
   }
@@ -44,14 +44,15 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--grey700);
-    font-size: 14px;
+    color: var(--color);
+    font-size: var(--font-small);
     font-weight: 400;
     letter-spacing: 0.2px;
   }
   .input {
-    color: var(--grey700);
-    font-size: 14px;
+    color: var(--color);
+    background-color: var(--background);
+    font-size: var(--font-small);
     font-weight: 400;
     letter-spacing: 0.2px;
     width: 100%;
@@ -70,7 +71,7 @@
       position: absolute;
       top: 8px;
       transform: translateY(0%);
-      font-size: 12px;
+      font-size: var(--font-xsmall);
       font-weight: 500;
       letter-spacing: 0.2px;
       opacity: 0.6;

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import _ from "lodash";
+
+import { handleAccept } from "../helpers/tools";
 
 import Button from "../components/Button";
 import SelectInput from "../components/SelectInput";
 import Modal from "../components/Modal";
 
-const Content = (product) => {
+const Content = product => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -13,19 +16,6 @@ const Content = (product) => {
   const [selectedSKU, setSelectedSKU] = useState({
     image: product.images[0].url,
   });
-
-  const handleAccept = () => {
-    setModal({
-      isOpen: true,
-      message: (
-        <div>
-          The product code is <span>{selectedSKU.code}</span>
-          <Button primary href={selectedSKU.url} target="__blank">Show it now</Button>
-        </div>
-      ),
-      iconName: "basket",
-    });
-  };
 
   useEffect(() => {
     document.getElementById("product-desc").innerHTML = product.desc;
@@ -96,7 +86,7 @@ const Content = (product) => {
           value={selectedColor}
           onChange={setSelectedColor}
         />
-        <Button primary onClick={handleAccept} disabled={isButtonDisabled}>
+        <Button primary onClick={() => handleAccept(selectedSKU, setModal)} disabled={isButtonDisabled}>
           Accept
         </Button>
       </div>
@@ -104,5 +94,9 @@ const Content = (product) => {
     </div>
   );
 };
+
+Content.propTypes = {
+  product: PropTypes.object,
+}
 
 export default Content;

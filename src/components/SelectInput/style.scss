@@ -5,20 +5,20 @@
     position: absolute;
     top: 20px;
     left: 16px;
-    color: var(--grey700);
-    font-size: 14px;
+    color: var(--color);
+    font-size: var(--font-small);
     transition: all .3s;
     cursor: pointer;
     &.menu-open {
       top: 10px;
-      font-size: 12px;
+      font-size: var(--font-xsmall);
     }
   }
   &.selected-value {
     .select-input-header {
       top: 10px;
       opacity: 0.6;
-      font-size: 12px;
+      font-size: var(--font-xsmall);
     }
     .true__control {
       padding-top: 17px;
@@ -35,10 +35,11 @@
     width: 100%;
     height: 56px;
     border: 1px solid var(--grey200);
+    background-color: var(--background);
     padding-left: 16px;
-    font-size: 14px;
+    font-size: var(--font-medium);
     font-weight: 400;
-    color: var(--grey700);
+    color: var(--grey400);
     border-radius: 2px;
     text-decoration: none;
     -webkit-box-pack: start;
@@ -66,6 +67,7 @@
   }
   .true__single-value {
     margin: 0;
+    color: var(--color);
   }
   .true__placeholder {
     display: none;
@@ -74,7 +76,7 @@
     margin: 0;
     box-shadow: 0 2px 12px rgba(var(--rgb-black),.16);
     border-radius: 0 2px;
-    background-color: var(--white);
+    background-color: var(--background);
   }
   .true__input {
     position: relative;
@@ -92,16 +94,18 @@
     padding-left: 24px;
     padding-top: 12px;
     padding-bottom: 12px;
-    font-size: 14px;
+    font-size: var(--font-medium);
     font-weight: 400;
-    color: var(--grey400);
+    color: var(--color);
     cursor: pointer;
     &:hover {
       background-color: var(--grey100);
+      color: var(--grey800);
     }
   }
   .true__indicators .icon {
     margin-right: 21px;
+    fill: var(--color);
   }
   .true__indicator-separator {
     background-color: inherit;

@@ -1,0 +1,109 @@
+.toggle-overlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  background-color: rgba(var(--rgb-black), 0.45);
+}
+.theme-tool-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: var(--white);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 40px;
+  #close-button {
+    position: absolute;
+    left: 15px;
+    display: inline-block;
+  }
+  .palette-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .palette-title {
+    color: var(--grey700);
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .theme-options-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 116px;
+    margin-bottom: 30px;
+  }
+  .color-options-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    div {
+      width: 75px;
+      height: 75px;
+    }
+    #red {
+      background-color: var(--red);
+    }
+    #yellow {
+      background-color: var(--yellow);
+    }
+    #orange {
+      background-color: var(--orange);
+    }
+    #green {
+      background-color: var(--green);
+    }
+    #blue {
+      background-color: var(--blue);
+    }
+    #purple {
+      background-color: var(--purple);
+    }
+    #pink {
+      background-color: var(--pink);
+    }
+    #maroon {
+      background-color: var(--maroon);
+    }
+    #brown {
+      background-color: var(--brown);
+    }
+  }
+  .size-options-wrapper {
+    .button {
+      margin-bottom: 10px;
+    }
+    .button-transparent {
+      color: var(--grey700)!important;
+    }
+    #size1 {
+      font-size: 12px;
+    }
+    #size2 {
+      font-size: 14px;
+    }
+    #size3 {
+      font-size: 16px;
+    }
+    #size4 {
+      font-size: 18px;
+    }
+    #size5 {
+      font-size: 20px;
+    }
+  }
+}

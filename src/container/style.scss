@@ -3,11 +3,13 @@
     display: flex;
     justify-content: center;
     flex: 1;
+    position: relative;
     padding-top: 45px;
-    padding-bottom: 15px;
-    border-bottom: 1px dotted var(--white-smoke);
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--grey400);
   }
-  .section-row, .text-inputs-wrapper {
+  .section-row,
+  .text-inputs-wrapper {
     display: flex;
     &:not(:last-child) {
       margin-bottom: 15px;
@@ -25,8 +27,18 @@
       margin-right: 15px;
     }
   }
+  .description-wrapper--text {
+    font-size: var(--font-medium);
+  }
   #smartgift-logo {
     height: 60px;
+    filter: var(--logo);
+  }
+  #settings-icon {
+    position: absolute;
+    right: 30px;
+    top: 55px;
+    fill: var(--color);
   }
   #main-content {
     padding: 40px 20px;
@@ -44,13 +56,16 @@
       height: 400px;
     }
     .description-wrapper--title {
-      color: var(--primary);
-      font-size: 18px;
+      color: var(--color);
+      font-size: var(--font-large);
       font-weight: 800px;
     }
+    .description-wrapper--text {
+      color: var(--color);
+    }
     .product--title {
-      color: var(--primary);
-      font-size: 24px;
+      color: var(--color);
+      font-size: var(--font-xlarge);
       font-weight: 800;
       margin-bottom: 30px;
     }
@@ -77,26 +92,32 @@
     display: flex;
   }
   .section-col:not(:last-child) {
-    margin-right: 0!important;
+    margin-right: 0 !important;
     margin-bottom: 15px;
   }
   #smartgift-logo {
-    height: 50px!important;
+    height: 50px !important;
   }
 }
 
 @media (max-width: 532px) {
   .text-inputs-wrapper {
     flex-direction: column;
-    .text-input-container, a, .button {
+    .text-input-container,
+    a,
+    .button {
       width: 100%;
     }
     .text-input-container:not(:last-child) {
-      margin-right: 0!important;
+      margin-right: 0 !important;
       margin-bottom: 15px;
     }
   }
   #smartgift-logo {
-    height: 40px!important;
+    height: 40px !important;
+  }
+  .product-image-wrapper,
+  .product-image-wrapper img {
+    height: 300px !important;
   }
 }

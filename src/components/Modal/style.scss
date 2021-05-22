@@ -14,7 +14,7 @@
   flex-direction: column;
   width: 550px;
   min-height: 200px;
-  background-color: white;
+  background-color: var(--background);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -33,14 +33,15 @@
     flex: 1;
     margin-bottom: 30px;
     .icon {
-      fill: var(--grey400);
+      fill: var(--color);
+      color: var(--color);
       width: fit-content;
       height: 100px;
     }
   }
   .modal__content--text {
-    color: var(--grey700);
-    font-size: 20px;
+    color: var(--color);
+    font-size: var(--font-large);
     font-weight: 800;
     div {
       display: flex;
@@ -50,7 +51,7 @@
     }
     div span {
       color: var(--primary);
-      font-size: 24px;
+      font-size: var(--font-xlarge);
       margin-top: 10px;
       margin-bottom: 15px;
     }

@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 2px;
-  font-size: 14px;
+  font-size: var(--font-medium);
   font-weight: 500;
   user-select: none;
   cursor: pointer;
@@ -17,13 +17,19 @@
   height: 56px;
   min-width: 164px;
 }
-
+%button-theme {
+  height: 36px;
+  width: 100%;
+  border: 1px solid rgb(var(--rgb-grey200));
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgb(var(--rgb-grey200));
+}
 .button-primary {
   @extend %button-base;
   @extend %button-size;
   background-color: var(--primary);
   color: var(--white);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--color);
   .spinner-container span {
     border-top-color: var(--white);
     border-left-color: var(--white);
@@ -31,7 +37,7 @@
   }
   &:hover:not(&.button-disabled) {
     background-color: transparent;
-    color: var(--primary);
+    color: var(--color);
     .spinner-container span {
       border-top-color: var(--red);
       border-left-color: var(--red);
@@ -46,13 +52,31 @@
   background-color: inherit;
   padding: 0;
   min-width: inherit;
-  color: var(--secondary);
+  color: var(--color);
   text-decoration: none;
+}
+.button-light {
+  @extend %button-base;
+  @extend %button-theme;
+  background-color: var(--light-bg);
+  color: var(--light-color);
+}
+.button-warm {
+  @extend %button-base;
+  @extend %button-theme;
+  background-color: var(--warm-bg);
+  color: var(--warm-color);
+}
+.button-dark {
+  @extend %button-base;
+  @extend %button-theme;
+  background-color: var(--dark-bg);
+  color: var(--dark-color);
 }
 .link {
   @extend %button-base;
   text-decoration: underline;
   display: inline-flex;
-  color: var(--primary);
+  color: var(--color);
   padding: 0;
 }
