@@ -13,7 +13,7 @@ npm install
 ## Run
 
 ```sh
-npm start run
+npm run start
 ```
 
 Runs the app in the development mode.\
