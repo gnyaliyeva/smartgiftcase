@@ -1,6 +1,6 @@
 # HeroEngage & Smartgift Frontend Case
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can fetch the repository to execute project in dethe development mode or visit the [Live version](https://gnyaliyeva.github.io/smartgiftcase)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can fetch the repository to execute project in the development mode and also visit the [Live version](https://gnyaliyeva.github.io/smartgiftcase).
 
 ## Install
 

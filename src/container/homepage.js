@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { handleProducts } from "../helpers/tools";
 
@@ -8,9 +8,8 @@ import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 
 const HomePage = ({ results, setResults }) => {
-  const { code } = useParams();
-  const [productCodes, setProductCodes] = useState(code || "");
-  const [merchantCode, setMerchantCode] = useState("vineyardvines");
+  const [productCodes, setProductCodes] = useState("");
+  const [merchantCode, setMerchantCode] = useState("");
 
   return (
     <div className="text-inputs-wrapper">

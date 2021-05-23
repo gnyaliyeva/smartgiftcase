@@ -27,9 +27,9 @@
 .button-primary {
   @extend %button-base;
   @extend %button-size;
-  background-color: var(--primary);
+  background-color: var(--button);
   color: var(--white);
-  border: 1px solid var(--color);
+  border: 1px solid var(--button);
   .spinner-container span {
     border-top-color: var(--white);
     border-left-color: var(--white);
