@@ -11,7 +11,7 @@ const DropdownIndicator = (props) => (
   <Icon
     name={props.selectProps.menuIsOpen ? "selectUp" : "selectDown"}
     width={10}
-    color="#333333"
+    color="var(--grey800)"
   />
 );
 

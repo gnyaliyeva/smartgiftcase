@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import _ from "lodash";
 
 import { handleAccept } from "../helpers/tools";
@@ -8,7 +8,7 @@ import Button from "../components/Button";
 import SelectInput from "../components/SelectInput";
 import Modal from "../components/Modal";
 
-const Content = product => {
+const Content = (product) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -86,7 +86,11 @@ const Content = product => {
           value={selectedColor}
           onChange={setSelectedColor}
         />
-        <Button primary onClick={() => handleAccept(selectedSKU, setModal)} disabled={isButtonDisabled}>
+        <Button
+          primary
+          onClick={() => handleAccept(selectedSKU, setModal)}
+          disabled={isButtonDisabled}
+        >
           Accept
         </Button>
       </div>
@@ -97,6 +101,6 @@ const Content = product => {
 
 Content.propTypes = {
   product: PropTypes.object,
-}
+};
 
 export default Content;

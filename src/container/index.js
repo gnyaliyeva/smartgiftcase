@@ -39,7 +39,7 @@ const Container = () => {
         </Button>
       </header>
       <section id="main-content">
-        <HomePage setResults={setResults} />
+        <HomePage results={results} setResults={setResults} />
         {getContext(results)}
       </section>
       <Modal modal={modal} setModal={setModal} />

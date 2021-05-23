@@ -1,4 +1,9 @@
 import axios from "axios";
+import { setupCache } from 'axios-cache-adapter'
+
+const cache = setupCache({
+  maxAge: 60 * 60 * 1000
+})
 
 export const req = () => {
   const baseURL = process.env.REACT_APP_BASE_URL;
@@ -11,6 +16,7 @@ export const req = () => {
   return axios.create({
     baseURL,
     headers,
+    adapter: cache.adapter,
     validateStatus(status) {
       return status >= 200 && status < 300;
     },

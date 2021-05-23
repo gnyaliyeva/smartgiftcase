@@ -7,7 +7,7 @@ import { handleProducts } from "../helpers/tools";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 
-const HomePage = ({ setResults }) => {
+const HomePage = ({ results, setResults }) => {
   const { code } = useParams();
   const [productCodes, setProductCodes] = useState(code || "");
   const [merchantCode, setMerchantCode] = useState("vineyardvines");
@@ -29,6 +29,7 @@ const HomePage = ({ setResults }) => {
         <Button
           primary
           onClick={() => handleProducts(merchantCode, productCodes, setResults)}
+          isLoading={results.isLoading}
         >
           Get Product Detail
         </Button>
@@ -38,6 +39,7 @@ const HomePage = ({ setResults }) => {
 };
 
 HomePage.propTypes = {
+  results: PropTypes.object,
   setResults: PropTypes.func,
 }
 
