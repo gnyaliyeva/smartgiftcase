@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/smartgiftcase/static/css/main.30ccef5f.chunk.css",
-    "main.js": "/smartgiftcase/static/js/main.16534352.chunk.js",
-    "main.js.map": "/smartgiftcase/static/js/main.16534352.chunk.js.map",
+    "main.css": "/smartgiftcase/static/css/main.3fc78493.chunk.css",
+    "main.js": "/smartgiftcase/static/js/main.582ec31f.chunk.js",
+    "main.js.map": "/smartgiftcase/static/js/main.582ec31f.chunk.js.map",
     "runtime-main.js": "/smartgiftcase/static/js/runtime-main.5bc25b82.js",
     "runtime-main.js.map": "/smartgiftcase/static/js/runtime-main.5bc25b82.js.map",
-    "static/js/2.86308510.chunk.js": "/smartgiftcase/static/js/2.86308510.chunk.js",
-    "static/js/2.86308510.chunk.js.map": "/smartgiftcase/static/js/2.86308510.chunk.js.map",
+    "static/js/2.f35325d6.chunk.js": "/smartgiftcase/static/js/2.f35325d6.chunk.js",
+    "static/js/2.f35325d6.chunk.js.map": "/smartgiftcase/static/js/2.f35325d6.chunk.js.map",
     "index.html": "/smartgiftcase/index.html",
-    "static/css/main.30ccef5f.chunk.css.map": "/smartgiftcase/static/css/main.30ccef5f.chunk.css.map",
-    "static/js/2.86308510.chunk.js.LICENSE.txt": "/smartgiftcase/static/js/2.86308510.chunk.js.LICENSE.txt",
+    "static/css/main.3fc78493.chunk.css.map": "/smartgiftcase/static/css/main.3fc78493.chunk.css.map",
+    "static/js/2.f35325d6.chunk.js.LICENSE.txt": "/smartgiftcase/static/js/2.f35325d6.chunk.js.LICENSE.txt",
     "static/media/smartgiftlogo.376d95d6.svg": "/smartgiftcase/static/media/smartgiftlogo.376d95d6.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.5bc25b82.js",
-    "static/js/2.86308510.chunk.js",
-    "static/css/main.30ccef5f.chunk.css",
-    "static/js/main.16534352.chunk.js"
+    "static/js/2.f35325d6.chunk.js",
+    "static/css/main.3fc78493.chunk.css",
+    "static/js/main.582ec31f.chunk.js"
   ]
 }
